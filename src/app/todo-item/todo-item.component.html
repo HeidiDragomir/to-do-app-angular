@@ -1,0 +1,39 @@
+<li>
+  <div
+    class="flex items-center justify-between bg-white text-[#242424] p-4 rounded-lg shadow-md my-8"
+  >
+    <div class="flex gap-2">
+      <input type="checkbox" [checked]="isDone()" (click)="toggleDone()" />
+      <ng-container *ngIf="!isEditing(); else editMode">
+        <p [class.line-through]="isDone()">{{ todo().text }}</p>
+      </ng-container>
+      <ng-template #editMode>
+        <input
+          type="text"
+          [ngModel]="editedText()"
+          (blur)="saveEdit()"
+          (keydown.enter)="saveEdit()"
+          class="border px-2 py-1 rounded"
+          autofocus
+        />
+      </ng-template>
+    </div>
+
+    <div class="flex gap-2">
+      <button (click)="startEditing()">
+        <img
+          src="../assets/edit.png"
+          alt="Edit"
+          class="w-5 h-5 cursor-pointer"
+        />
+      </button>
+      <button (click)="delete()">
+        <img
+          src="../assets/delete.png"
+          alt="Delete"
+          class="w-5 h-5 cursor-pointer"
+        />
+      </button>
+    </div>
+  </div>
+</li>

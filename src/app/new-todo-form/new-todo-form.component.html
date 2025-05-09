@@ -1,0 +1,16 @@
+<form class="relative mt-12" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="newTodoItem"
+    placeholder="Add a new task..."
+    class="w-full border-2 text-[#242424] border-gray-300 rounded-lg p-2"
+    [(ngModel)]="newTodoInput"
+  />
+  <button type="submit">
+    <img
+      src="../assets/add.png"
+      alt="Add"
+      class="absolute right-5 top-3 w-5 h-5 cursor-pointer"
+    />
+  </button>
+</form>

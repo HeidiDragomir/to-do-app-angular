@@ -1,0 +1,10 @@
+<ul class="my-8">
+  @for (todo of todos(); track todo.id) {
+  <app-todo-item
+    [todo]="todo"
+    (doneItem)="toggleTodoDone($event)"
+    (deleteItem)="deleteTodo($event)"
+    (updateItem)="updateTodo($event)"
+  />
+  }
+</ul>
